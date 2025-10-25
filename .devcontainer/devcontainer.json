@@ -7,13 +7,8 @@
   ],
 
   "features": {
-    "ghcr.io/tailscale/codespace/tailscale:latest": {
-      // Pass the auth key directly from the environment
-      "authkey": "${env:TS_AUTH_KEY}",
-      "hostname": "codespace-exit",
-      "advertiseExitNode": true,
-    }
+    "ghcr.io/tailscale/codespace/tailscale:latest": {}
   },
 
-  "postCreateCommand": "tailscale status"
+  "postCreateCommand": "tailscale up --authkey=${TS_AUTH_KEY} --hostname=codespace-exit --advertise-exit-node"
 }
