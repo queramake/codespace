@@ -1,13 +1,19 @@
 {
-  "name": "Codespace with Tailscale Exit Node",
+  "name": "Codespace Tailscale",
+
   "runArgs": [
     "--device=/dev/net/tun",
     "--cap-add=NET_ADMIN"
   ],
+
   "features": {
     "ghcr.io/tailscale/codespace/tailscale:latest": {
-      "authkey": "${localEnv:TS_AUTH_KEY}",
-      "advertiseExitNode": true
+      // Pass the auth key directly from the environment
+      "authkey": "${env:TS_AUTH_KEY}",
+      "hostname": "codespace-exit",
+      "advertiseExitNode": true,
     }
-  }
+  },
+
+  "postCreateCommand": "tailscale status"
 }
