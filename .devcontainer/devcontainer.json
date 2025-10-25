@@ -1,0 +1,13 @@
+{
+  "name": "Codespace with Tailscale Exit Node",
+  "runArgs": [
+    "--device=/dev/net/tun",
+    "--cap-add=NET_ADMIN"
+  ],
+  "features": {
+    "ghcr.io/tailscale/codespace/tailscale:latest": {
+      "authkey": "${localEnv:TS_AUTH_KEY}",
+      "advertiseExitNode": true
+    }
+  }
+}
