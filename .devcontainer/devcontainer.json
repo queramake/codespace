@@ -10,5 +10,5 @@
     "ghcr.io/tailscale/codespace/tailscale:latest": {}
   },
 
-  "postCreateCommand": "tailscale up --authkey=${TS_AUTH_KEY} --hostname=codespace-exit --advertise-exit-node"
+  "postCreateCommand": "sudo tailscale up --authkey=${TS_AUTH_KEY} --hostname=codespace-exit --advertise-exit-node"
 }
